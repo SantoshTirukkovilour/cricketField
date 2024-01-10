@@ -293,7 +293,7 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
     'long stop', 'third man', 'short third man', 'deep third man','fine third man','square third man',
     'deep backward point', 'deep point', 'deep cover point', 'deep cover', 'sweeper cover',
     'wide long off', 'long off', 'staight long off', 'straight hit', 'straight long on', 'long on', 'wide long on',
-    'deep forward mid-wicket', 'deep mid-wicket', 'deep forward square leg', 'deep square leg', 'deep backward square leg'
+    'deep forward mid-wicket', 'deep mid-wicket', 'deep forward square leg', 'deep square leg', 'deep backward square leg','bowler','bowler'
     ];
     var allposcoord = [
         [0.476, 0.98-0.633],
@@ -314,7 +314,7 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
         [0.284, 0.98-0.305],
         [0.397, 0.98-0.300],
         [0.383, 0.98-0.206],
-        [0.420, 0.98-0.427],
+        [0.400, 0.98-0.427],
         [0.450, 0.98-0.508], //silly midoff
         [0.576, 0.98-0.299],
         [0.603, 0.98-0.209],
@@ -358,6 +358,8 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
         [0.948, 0.98-0.464],
         [0.944, 0.98-0.551],
         [0.921, 0.98-0.650],
+        [0.470, 0.98-0.280],
+        [0.500, 0.98-0.309]
     ];
 
     // positions = allposcoord;
@@ -397,14 +399,14 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
     layer.add(yellowGroup);
     stage.add(layer);
 
-    var redGroup = getPlayerGroup(positions[1][0]*width, positions[1][1]*height);
+    /*var redGroup = getPlayerGroup(positions[1][0]*width, positions[1][1]*height);
     var textNode1 = getTextNode(stage.getContainer().getBoundingClientRect(), 2);
     var textNode2 = getPosNode(stage.getContainer().getBoundingClientRect(), 'bowler', "bowler");
     redGroup.add(getRedPlayer(textNode1)).add(textNode1).add(textNode2);
     layer.add(redGroup);
-    stage.add(layer);
+    stage.add(layer);*/
 
-    for (var i=2; i<positions.length;i++){
+    for (var i=1; i<positions.length;i++){
         var playerGroup = getPlayerGroup(positions[i][0]*width, positions[i][1]*height);
         var text = getTextNode( stage.getContainer().getBoundingClientRect(), i+1);
         var abspos = [positions[i][0], positions[i][1]];
@@ -430,7 +432,7 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
         layer.draw();
       }
     });
-    hideposname();
+    //hideposname();
 
     function hidepname(){
       if ($('#pname').is(':checked')){
@@ -461,13 +463,7 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
         for (var i=2; i<positions.length; i++){
           stage.find('#pos'+i.toString())[0].hide();
         }
-      } 
-      stage.find('#wk')[0].hide();
-        stage.find('#bowler')[0].hide();
-        var fielders = stage.find('#pos')
-        for (var i=2; i<positions.length; i++){
-          stage.find('#pos'+i.toString())[0].hide();
-        }    
+      }    
       layer.draw();
     }
 
