@@ -42,10 +42,10 @@
       <label class="form-check-label" for="pname">Show Player Names</label>
       <br>
       <input class="form-check-input" type="checkbox" value="" id="posname" onchange="hideposname();" checked>
-      <label class="form-check-label" for="posname">Show Positions</label>
+      <label class="form-check-label" for="posname">Show Positions</label>-->
       <div id='names'>
         
-      </div>-->
+      </div>
     </div>
   </div>
   </div>
@@ -382,7 +382,7 @@ var players = ['Venkat','Santosh','Heera','Milan','Sai','Vikram','Kiran',
     }
 
     for (var i=0; i<positions.length;i++){
-      $('#names').append('<input type="text" class="form-control" id="name'+(i+1).toString()+ '" placeholder="player '+(i+1).toString() +'" onchange="yass('+(i+1).toString()+')"><br>');
+      $('#names').append('<input type="text" class="form-control" id="name'+(i+1).toString()+ '" placeholder=" '+players[i].toString() +'" onchange="yass('+(i+1).toString()+')"><br>');
     }
     function yass(ind){
       stage.find('#'+ind.toString())[0].text($('#name'+ind.toString()).val());
